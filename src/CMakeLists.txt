@@ -52,9 +52,9 @@ if(WITH_COVERAGE)
   target_link_options(bls PRIVATE --coverage)
 endif()
 
-install(DIRECTORY ${blst_SOURCE_DIR}/include/ DESTINATION include/chiabls)
-install(DIRECTORY ${blst_BINARY_DIR}/include/ DESTINATION include/chiabls)
-install(FILES ${HEADERS} DESTINATION include/chiabls)
+install(DIRECTORY ${blst_SOURCE_DIR}/include/ DESTINATION include/chikbls)
+install(DIRECTORY ${blst_BINARY_DIR}/include/ DESTINATION include/chikbls)
+install(FILES ${HEADERS} DESTINATION include/chikbls)
 install(FILES $<TARGET_FILE:bls> DESTINATION lib)
 
 if(BUILD_BLS_TESTS)

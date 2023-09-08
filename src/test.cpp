@@ -1,5 +1,5 @@
 
-// Copyright 2020 Chia Network Inc
+// Copyright 2020 Chik Network Inc
 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -381,9 +381,9 @@ TEST_CASE("IETF test vectors")
     }
 }
 
-TEST_CASE("Chia test vectors")
+TEST_CASE("Chik test vectors")
 {
-    SECTION("Chia test vectors 1 (Basic)")
+    SECTION("Chik test vectors 1 (Basic)")
     {
         vector<uint8_t> seed1(32, 0x00);  // All 0s
         vector<uint8_t> seed2(32, 0x01);  // All 1s
@@ -467,7 +467,7 @@ TEST_CASE("Chia test vectors")
             "d547ab37659ae207968b545727beba0a3c5572b9c");
     }
 
-    SECTION("Chia test vector 2 (Augmented, aggregate of aggregates)")
+    SECTION("Chik test vector 2 (Augmented, aggregate of aggregates)")
     {
         vector<uint8_t> message1 = {1, 2, 3, 40};
         vector<uint8_t> message2 = {5, 6, 70, 201};
@@ -508,7 +508,7 @@ TEST_CASE("Chia test vectors")
             "25ca964871"
             "997b9bceeab37a4c2565876da19382ea32a962200");
     }
-    SECTION("Chia test vector 3 (PoP)")
+    SECTION("Chik test vector 3 (PoP)")
     {
         vector<uint8_t> message1 = {1, 2, 3, 40, 50};
 

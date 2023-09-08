@@ -1,14 +1,13 @@
 ---
 name: 'Close stale issues'
 on:
-  schedule:
-    - cron: '0 11 * * *'
+  workflow_dispatch:
 
 jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-      - uses: chia-network/stale@main
+      - uses: chik-network/stale@main
         with:
           operations-per-run: 10000
           ascending: true

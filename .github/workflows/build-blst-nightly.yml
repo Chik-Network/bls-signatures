@@ -1,8 +1,6 @@
 name:  Build and Test with blst Nightly
 
 on:
-  schedule:
-    - cron: "0 11 * * *"
   workflow_dispatch:
 
 concurrency:
