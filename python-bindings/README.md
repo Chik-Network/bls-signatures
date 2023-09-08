@@ -5,7 +5,7 @@ Use the full power and efficiency of the C++ bls library, but in a few lines of 
 ## Install
 
 ```bash
-pip3 install blspy
+pip3 install klspy
 
 ```
 
@@ -23,7 +23,7 @@ Then, to use:
 ## Import the library
 
 ```python
-from blspy import (PrivateKey, Util, AugSchemeMPL, PopSchemeMPL,
+from klspy import (PrivateKey, Util, AugSchemeMPL, PopSchemeMPL,
                    G1Element, G2Element)
 ```
 

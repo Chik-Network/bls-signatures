@@ -62,7 +62,7 @@ class CMakeBuild(build_ext):
 
 
 setup(
-    name="blspy",
+    name="klspy",
     author="Mariano Sorgente",
     author_email="mariano@chiknetwork.com",
     description="BLS signatures in c++ (python bindings)",
@@ -70,8 +70,8 @@ setup(
     install_requires=["wheel"],
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/Chik-Network/bls-signatures",
-    ext_modules=[CMakeExtension("blspy", ".")],
+    url="https://github.com/Chik-Network/kls-signatures",
+    ext_modules=[CMakeExtension("klspy", ".")],
     cmdclass=dict(build_ext=CMakeBuild),
     zip_safe=False,
 )

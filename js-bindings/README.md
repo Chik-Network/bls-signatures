@@ -1,18 +1,18 @@
-## bls-signatures
+## kls-signatures
 
 JavaScript library that implements BLS signatures with aggregation as in [Boneh, Drijvers, Neven 2018](https://crypto.stanford.edu/~dabo/pubs/papers/BLSmultisig.html), using the relic toolkit for cryptographic primitives (pairings, EC, hashing).
 
-This library is a JavaScript port of the [Chik Network's BLS lib](https://github.com/Chik-Network/bls-signatures). We also have typings, so you can use it with TypeScript too!
+This library is a JavaScript port of the [Chik Network's BLS lib](https://github.com/Chik-Network/kls-signatures). We also have typings, so you can use it with TypeScript too!
 
 ### Usage
 
 ```bash
-npm i bls-signatures --save # or yarn add bls-signatures
+npm i kls-signatures --save # or yarn add kls-signatures
 ```
 
 ### Creating keys and signatures
 ```javascript
-  var loadBls = require("bls-signatures");
+  var loadBls = require("kls-signatures");
   var BLS = await loadBls();
   
   var seed = Uint8Array.from([

@@ -1,5 +1,5 @@
 {
-  "name": "bls-signatures",
+  "name": "kls-signatures",
   "version": "0.2.1-beta.0",
   "description": "The most advanced BLS library for JavaScript",
   "main": "blsjs.js",
@@ -20,9 +20,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Chik-Network/bls-signatures.git"
+    "url": "git@github.com:Chik-Network/kls-signatures.git"
   },
-  "homepage": "https://github.com/Chik-Network/bls-signatures/tree/master/js-bindings",
+  "homepage": "https://github.com/Chik-Network/kls-signatures/tree/master/js-bindings",
   "author": {
     "name": "Anton Suprunchuk",
     "email": "antouhou@gmail.com",

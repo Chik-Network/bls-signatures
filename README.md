@@ -1,13 +1,13 @@
 # BLS Signatures implementation
 
-[![Build and Test C++, Javascript, and Python](https://github.com/Chik-Network/bls-signatures/actions/workflows/build-test.yaml/badge.svg)](https://github.com/Chik-Network/bls-signatures/actions/workflows/build-test.yaml)
-![PyPI](https://img.shields.io/pypi/v/blspy?logo=pypi)
-![PyPI - Format](https://img.shields.io/pypi/format/blspy?logo=pypi)
-![GitHub](https://img.shields.io/github/license/Chik-Network/bls-signatures?logo=Github)
+[![Build and Test C++, Javascript, and Python](https://github.com/Chik-Network/kls-signatures/actions/workflows/build-test.yaml/badge.svg)](https://github.com/Chik-Network/kls-signatures/actions/workflows/build-test.yaml)
+![PyPI](https://img.shields.io/pypi/v/klspy?logo=pypi)
+![PyPI - Format](https://img.shields.io/pypi/format/klspy?logo=pypi)
+![GitHub](https://img.shields.io/github/license/Chik-Network/kls-signatures?logo=Github)
 
-[![CodeQL](https://github.com/Chik-Network/bls-signatures/actions/workflows/codeql.yml/badge.svg)](https://github.com/Chik-Network/bls-signatures/actions/workflows/codeql.yml)
+[![CodeQL](https://github.com/Chik-Network/kls-signatures/actions/workflows/codeql.yml/badge.svg)](https://github.com/Chik-Network/kls-signatures/actions/workflows/codeql.yml)
 
-[![Coverage Status](https://coveralls.io/repos/github/Chik-Network/bls-signatures/badge.svg?branch=main)](https://coveralls.io/github/Chik-Network/bls-signatures?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/Chik-Network/kls-signatures/badge.svg?branch=main)](https://coveralls.io/github/Chik-Network/kls-signatures?branch=main)
 
 NOTE: THIS LIBRARY IS NOT YET FORMALLY REVIEWED FOR SECURITY
 
@@ -28,9 +28,9 @@ Features:
 * [EIP-2333](https://eips.ethereum.org/EIPS/eip-2333) key derivation (including unhardened BIP-32-like keys)
 * Key and signature serialization
 * Batch verification
-* [Python bindings](https://github.com/Chik-Network/bls-signatures/tree/main/python-bindings)
-* [Pure python bls12-381 and signatures](https://github.com/Chik-Network/bls-signatures/tree/main/python-impl)
-* [JavaScript bindings](https://github.com/Chik-Network/bls-signatures/tree/main/js-bindings)
+* [Python bindings](https://github.com/Chik-Network/kls-signatures/tree/main/python-bindings)
+* [Pure python bls12-381 and signatures](https://github.com/Chik-Network/kls-signatures/tree/main/python-impl)
+* [JavaScript bindings](https://github.com/Chik-Network/kls-signatures/tree/main/js-bindings)
 
 ## Before you start
 
@@ -203,7 +203,7 @@ On a 3.5 GHz i7 Mac, verification takes about 1.1ms per signature, and signing t
 ### Link the library to use it
 
 ```bash
-g++ -Wl,-no_pie -std=c++11 -Ibls-signatures/src -L./bls-signatures/build/ -l bls yourapp.cpp
+g++ -Wl,-no_pie -std=c++11 -Ikls-signatures/src -L./kls-signatures/build/ -l bls yourapp.cpp
 ```
 
 ## Notes on dependencies
@@ -240,7 +240,7 @@ due to a lack of M1 CI runners. See `.github/workflows/build.yml`. CMake uses
 to download [pybind11](https://github.com/pybind/pybind11) for the Python
 bindings. Building
 is then managed by [cibuildwheel](https://github.com/joerick/cibuildwheel).
-Further installation is then available via `pip install blspy` e.g. The ci
+Further installation is then available via `pip install klspy` e.g. The ci
 builds include a statically linked libsodium.
 
 ## Contributing and workflow
@@ -249,13 +249,13 @@ Contributions are welcome and more details are available in chik-blockchain's
 [CONTRIBUTING.md](https://github.com/Chik-Network/chik-blockchain/blob/main/CONTRIBUTING.md).
 
 The main branch is usually the currently released latest version on PyPI.
-Note that at times bls-signatures/blspy will be ahead of the release version
+Note that at times kls-signatures/klspy will be ahead of the release version
 that chik-blockchain requires in it's main/release version in preparation
 for a new chik-blockchain release. Please branch or fork main and then create
 a pull request to the main branch. Linear merging is enforced on main and
 merging requires a completed review. PRs will kick off a GitHub actions ci
-build and analysis of bls-signatures at
-[lgtm.com](https://lgtm.com/projects/g/Chik-Network/bls-signatures/?mode=list).
+build and analysis of kls-signatures at
+[lgtm.com](https://lgtm.com/projects/g/Chik-Network/kls-signatures/?mode=list).
 Please make sure your build is passing and that it does not increase alerts
 at lgtm.
 
