@@ -30,7 +30,7 @@ jobs:
           - name: macOS
             matrix: macos
             runs-on:
-              #arm: [macos-13-xlarge]
+              arm: [macos-13-xlarge]
               intel: [macos-12]
             cibw-archs-macos:
               arm: arm64
@@ -91,6 +91,14 @@ jobs:
               matrix: windows
               runs-on:
                 intel: [windows-latest]
+            arch:
+              name: ARM
+              matrix: arm
+          - os:
+              name: macOS
+              matrix: macos
+              runs-on:
+                arm: [ macos-13-xlarge ]
             arch:
               name: ARM
               matrix: arm
