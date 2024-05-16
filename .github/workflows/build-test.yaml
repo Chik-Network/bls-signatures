@@ -3,7 +3,7 @@ name:  Build and Test C++, Javascript, and Python
 on:
   push:
     branches:
-      #- main
+      - main1
     tags:
       - '**'
   pull_request:
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Collect coverage data
         run: |
           sudo apt-get update
@@ -48,11 +48,11 @@ jobs:
       fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        python: ['3.8', '3.9', '3.10', '3.11']
+        python: ['3.8', '3.9', '3.10', '3.11', '3.12']
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - uses: chik-network/actions/setup-python@main
       with:

@@ -17,12 +17,12 @@ Implements BLS signatures with aggregation using [blst library](https://github.c
 for cryptographic primitives (pairings, EC, hashing) according to the
 [IETF BLS RFC](https://datatracker.ietf.org/doc/draft-irtf-cfrg-bls-signature/)
 with [these curve parameters](https://datatracker.ietf.org/doc/draft-irtf-cfrg-pairing-friendly-curves/)
-for BLS12-381.
+for BLS12-381. The blst library has been [audited](https://medium.com/supranational/introducing-blst-2b6a988d68ee).
 
 Features:
 
 * Non-interactive signature aggregation following IETF specification
-* Works on Windows, Mac, Linux, BSD
+* Works on Windows, Mac, Linux, BSD, arm64, RISC-V
 * Efficient verification using Proof of Posssesion (only one pairing per distinct message)
 * Aggregate public keys and private keys
 * [EIP-2333](https://eips.ethereum.org/EIPS/eip-2333) key derivation (including unhardened BIP-32-like keys)
@@ -177,7 +177,7 @@ ok = (grandchildUPk == grandchildU.GetG1Element();
 
 ## Build
 
-Cmake 3.14+, a c++ compiler, and python3 (for bindings) are required for building.
+Cmake 3.14+, a c++ compiler, python3 and python[3.x]-dev (for bindings) are required for building.
 
 ```bash
 mkdir build
@@ -216,8 +216,8 @@ platforms in `.github/workflows/`.
 
 ## Discussion
 
-Discussion about this library and other Chik related development is in the #dev
-channel of Chik's [public Keybase channels](https://keybase.io/team/chik_network.public).
+Discussion about this library and other Chik related development is in the #chik-development
+channel of Chik's [Discord](https://discord.gg/SNbcMMvNBE).
 
 ## Code style
 
@@ -234,8 +234,8 @@ channel of Chik's [public Keybase channels](https://keybase.io/team/chik_network
 
 The primary build process for this repository is to use GitHub Actions to
 build binary wheels for MacOS, Linux (x64 and aarch64), and Windows and publish
-them with a source wheel on PyPi. MacOS ARM64 is supported but not automated
-due to a lack of M1 CI runners. See `.github/workflows/build.yml`. CMake uses
+them with a source wheel on PyPi. MacOS ARM64 is also supported.
+See `.github/workflows/build.yml`. CMake uses
 [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html)
 to download [pybind11](https://github.com/pybind/pybind11) for the Python
 bindings. Building
@@ -254,10 +254,7 @@ that chik-blockchain requires in it's main/release version in preparation
 for a new chik-blockchain release. Please branch or fork main and then create
 a pull request to the main branch. Linear merging is enforced on main and
 merging requires a completed review. PRs will kick off a GitHub actions ci
-build and analysis of kls-signatures at
-[lgtm.com](https://lgtm.com/projects/g/Chik-Network/kls-signatures/?mode=list).
-Please make sure your build is passing and that it does not increase alerts
-at lgtm.
+for building and testing.
 
 ## Specification and test vectors
 

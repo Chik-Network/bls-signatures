@@ -3,7 +3,7 @@ name: build - check - upload
 on:
   push:
     branches:
-    - main
+    - main1
   release:
     types: [published]
   pull_request:
@@ -69,6 +69,13 @@ jobs:
               arm: manylinux2014
               intel: manylinux2014
             matrix: '3.11'
+          - major-dot-minor: '3.12'
+            cibw-build: 'cp312-*'
+            manylinux:
+              arm: manylinux2014
+              intel: manylinux2014
+            matrix: '3.12'
+
         arch:
           - name: ARM
             matrix: arm
@@ -101,7 +108,7 @@ jobs:
       uses: Chik-Network/actions/clean-workspace@main
 
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
@@ -126,13 +133,14 @@ jobs:
         CIBW_MANYLINUX_X86_64_IMAGE: ${{ matrix.python.manylinux['intel'] }}
         CIBW_ARCHS_MACOS: ${{ matrix.os.cibw-archs-macos[matrix.arch.matrix] }}
       run:
-        pipx run --spec='cibuildwheel==2.11.2' cibuildwheel --output-dir dist 2>&1
+        pipx run --spec='cibuildwheel==2.16.2' cibuildwheel --output-dir dist 2>&1
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: packages
+        name: packages-${{ matrix.os.name }}-${{ matrix.python.major-dot-minor }}-${{ matrix.arch.name }}
         path: ./dist
+        overwrite: true
 
   build-sdist:
     name: sdist - ${{ matrix.os.name }} ${{ matrix.python.major-dot-minor }} ${{ matrix.arch.name }}
@@ -158,7 +166,7 @@ jobs:
       uses: Chik-Network/actions/clean-workspace@main
 
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
@@ -172,10 +180,11 @@ jobs:
         python -m build --sdist --outdir dist .
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: packages
+        name: packages-sdist-${{ matrix.os.name }}-${{ matrix.python.major-dot-minor }}-${{ matrix.arch.name }}
         path: ./dist
+        overwrite: true
 
   check:
     name: Check - ${{ matrix.os.name }} ${{ matrix.python.major-dot-minor }} ${{ matrix.arch.name }}
@@ -201,7 +210,7 @@ jobs:
       uses: Chik-Network/actions/clean-workspace@main
 
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
@@ -247,7 +256,7 @@ jobs:
       uses: Chik-Network/actions/clean-workspace@main
 
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
@@ -261,10 +270,11 @@ jobs:
         python-version: ${{ matrix.python.major-dot-minor }}
 
     - name: Download artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
-        name: packages
+        pattern: packages*
         path: ./dist
+        merge-multiple: true
 
     - name: Publish distribution to PyPI
       if: env.RELEASE == 'true'
